@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sprint19 — Software & Automation Partner | Company Profile</title>
+  <meta name="description" content="Sprint19 is your software and automation partner. We learn how your business runs, then build what fits: web and mobile apps, custom software, and Odoo automation. 15+ years, partners on 4 continents." />
+  <link rel="canonical" href="https://sprint19.com/" />
+  <link rel="icon" type="image/png" href="assets/logo-circle-dark.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sprint19 — Software & Automation Partner" />
+  <meta property="og:description" content="We learn how your business runs, then build what fits. 15+ years, partners on 4 continents." />
+  <meta property="og:image" content="assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --teal: #4CA38C; --teal-dark: #2E7A69; --teal-light: #6BBFA7;
+      --teal-pale: #EAF5F1; --teal-bg: #F2FAF7;
+      --surface: #F7FAFA; --border: #DDE9E6;
+      --heading: #0D2420; --body: #3D5A57; --muted: #7A9E9A;
+      --dark: #0D2420; --dark-2: #132C28;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      color: var(--body); background: #fff; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { color: var(--heading); letter-spacing: -0.025em; line-height: 1.15; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .overline { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 12px; }
+    section { padding: 72px 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; padding: 13px 22px; border-radius: 10px; transition: .15s; }
+    .btn-primary { background: var(--teal); color: #fff; }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-ghost { color: var(--teal-dark); border: 2px solid var(--teal); }
+    .btn-ghost:hover { background: var(--teal-pale); }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 38px; height: 38px; }
+    .brand .name { font-size: 20px; font-weight: 800; color: var(--heading); letter-spacing: -.02em; }
+    .brand .name span { color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a.lnk { font-weight: 600; font-size: 15px; color: var(--heading); }
+    .nav-links a.lnk:hover { color: var(--teal); }
+    @media (max-width: 720px) { .nav-links a.lnk { display: none; } }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, var(--teal-bg), #fff); padding: 84px 0 64px; }
+    .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); font-weight: 800; margin: 0 0 20px; }
+    .hero h1 .accent { color: var(--teal); }
+    .hero p.lead { font-size: 1.12rem; max-width: 60ch; margin-bottom: 28px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+    .stat { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 22px; text-align: center; }
+    .stat .num { font-size: 2.1rem; font-weight: 800; color: var(--teal); letter-spacing: -.04em; line-height: 1; }
+    .stat .lbl { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+    /* Section headings */
+    .sec-head { margin-bottom: 40px; }
+    .sec-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 800; margin-bottom: 10px; }
+    .sec-head p { max-width: 56ch; }
+
+    /* Services grid */
+    .grid { display: grid; gap: 16px; }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 900px) { .cards-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .cards-4 { grid-template-columns: 1fr; } }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .card .ico { font-size: 26px; margin-bottom: 12px; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .card p { font-size: 14px; }
+
+    /* Process */
+    .process { background: var(--surface); }
+    .flow { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+    .step { flex: 1 1 0; min-width: 120px; text-align: center; position: relative; padding: 8px; }
+    .step.arrow { flex: 0 0 auto; min-width: 0; display: flex; align-items: center; }
+    .step .pill { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 10px; font-weight: 700; font-size: 14px; color: var(--heading); }
+    .step:last-child .pill { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-pale); }
+    .step .arr { color: var(--teal); font-size: 20px; line-height: 1; padding: 10px 0; font-weight: 700; }
+    @media (max-width: 760px) { .flow { flex-direction: column; } .step .arr { transform: rotate(90deg); } }
+
+    /* Clients */
+    .clients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 860px) { .clients { grid-template-columns: 1fr; } }
+    .client { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; }
+    .client .badge { align-self: flex-start; background: #F6B73C; color: #1A2332; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; margin-bottom: 16px; }
+    .client .quote { font-size: 15px; color: var(--heading); font-style: italic; margin-bottom: 18px; flex: 1; }
+    .client .who { font-weight: 700; color: var(--heading); font-size: 15px; }
+    .client .meta { font-size: 13px; color: var(--muted); }
+    .client .co { font-size: 13px; font-weight: 700; color: var(--teal-dark); margin-bottom: 2px; }
+
+    /* Leadership */
+    .leaders { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 760px; }
+    @media (max-width: 640px) { .leaders { grid-template-columns: 1fr; } }
+    .leader { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .leader .top { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .leader img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+    .leader h3 { font-size: 16px; font-weight: 700; }
+    .leader .role { font-size: 14px; font-weight: 600; color: var(--teal-dark); }
+    .leader p { font-size: 14px; margin-bottom: 12px; }
+    .leader a { font-size: 14px; font-weight: 600; color: var(--teal-dark); }
+
+    /* Footer */
+    footer { background: var(--dark); color: rgba(255,255,255,.72); padding: 64px 0 36px; }
+    .foot-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 36px; }
+    @media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; gap: 28px; } }
+    footer .lock { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
+    footer .lock img { height: 76px; width: auto; }
+    footer .lock .tag { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; }
+    footer h4 { color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px; }
+    footer a:hover { color: #fff; }
+    footer .row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; font-size: 14px; }
+    footer .socials { display: flex; gap: 10px; margin-top: 8px; }
+    footer .socials a { width: 36px; height: 36px; border-radius: 9px; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); }
+    footer .socials a:hover { color: #fff; background: rgba(255,255,255,.16); }
+    footer .legal { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 22px; font-size: 13px; color: rgba(255,255,255,.5); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="Sprint19 home">
+        <img src="assets/logo-circle-dark.png" alt="Sprint19" />
+        <span class="name">Sprint<span>19</span></span>
+      </a>
+      <nav class="nav-links">
+        <a class="lnk" href="#services">Services</a>
+        <a class="lnk" href="#process">How We Work</a>
+        <a class="lnk" href="#clients">Clients</a>
+        <a class="btn btn-primary" href="mailto:hello@sprint19.com">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="overline">Software &amp; Automation Partner</p>
+        <h1>Make it work.<br /><span class="accent">Make it better.</span></h1>
+        <p class="lead">Sprint19 learns how your business actually runs, then builds only what fits — web and mobile apps, custom software, or Odoo automation. We have shipped products founders and operators love for over 15 years, with partners on 4 continents.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:hello@sprint19.com">Book a Strategy Call</a>
+          <a class="btn btn-ghost" href="tel:+18886148819">+1 888-614-8819</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="num">15+</div><div class="lbl">Years building products</div></div>
+          <div class="stat"><div class="num">11+</div><div class="lbl">Year avg. partnership</div></div>
+          <div class="stat"><div class="num">4</div><div class="lbl">Continents served</div></div>
+          <div class="stat"><div class="num">10–12</div><div class="lbl">Weeks to launch</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="overline">What We Build</p>
+          <h2>One partner, from idea to ongoing support</h2>
+          <p>We diagnose before we build. Sometimes the answer is a custom app, sometimes Odoo, sometimes both — and sometimes a process change with no new software at all.</p>
+        </div>
+        <div class="grid cards-4">
+          <div class="card"><div class="ico">🚀</div><h3>MLP Development</h3><p>Production-ready Minimum Lovable Products, shipped in 10 to 12 weeks.</p></div>
+          <div class="card"><div class="ico">📱</div><h3>Web &amp; Mobile Apps</h3><p>Responsive web apps and native mobile, built for conversion and scale.</p></div>
+          <div class="card"><div class="ico">🤖</div><h3>AI-Assisted Builds</h3><p>AI features integrated strategically, not speculatively.</p></div>
+          <div class="card"><div class="ico">⚙️</div><h3>Process Optimization</h3><p>Streamline operations with Odoo ERP, CRM, invoicing, inventory, and HR.</p></div>
+          <div class="card"><div class="ico">👥</div><h3>Staff Augmentation</h3><p>Senior engineers and PMs embedded in your team within two weeks.</p></div>
+          <div class="card"><div class="ico">🗺️</div><h3>Product Strategy</h3><p>Turn an idea into a costed, prioritized roadmap in one to two weeks.</p></div>
+          <div class="card"><div class="ico">📈</div><h3>Marketing Automation</h3><p>High-converting funnels and automated sales pipelines.</p></div>
+          <div class="card"><div class="ico">🛡️</div><h3>Ongoing Support</h3><p>Retainers for fixes, security, monitoring, and new features.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="process">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="overline">How We Work</p>
+          <h2>Understand first, build after</h2>
+          <p>A long-term partnership, not a one-off project. Most of our clients have stayed with us for years.</p>
+        </div>
+        <div class="flow">
+          <div class="step"><div class="pill">Idea</div></div>
+          <div class="step arrow"><div class="arr">→</div></div>
+          <div class="step"><div class="pill">App Development</div></div>
+          <div class="step arrow"><div class="arr">→</div></div>
+          <div class="step"><div class="pill">Web Platform</div></div>
+          <div class="step arrow"><div class="arr">→</div></div>
+          <div class="step"><div class="pill">Growth Content</div></div>
+          <div class="step arrow"><div class="arr">→</div></div>
+          <div class="step"><div class="pill">Support</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="clients">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="overline">Featured Clients</p>
+          <h2>Trusted across industries and continents</h2>
+        </div>
+        <div class="clients">
+          <div class="client">
+            <span class="badge">Featured Client</span>
+            <p class="quote">“Sprint19 works effectively in understanding needs and implementing optimized technical solutions. They are excellent communicators and highly trustworthy.”</p>
+            <div class="co">Golf Crow · FabForeDev</div>
+            <div class="who">Marty R., Founder</div>
+            <div class="meta">New York, U.S.A. · Partner since 2015</div>
+          </div>
+          <div class="client">
+            <span class="badge">Featured Client</span>
+            <p class="quote">“Sprint19 is quick, responsive and trustworthy. We are no longer concerned with software support going out of date, and we have added many efficiency improvements and new features without adding to monthly maintenance costs.”</p>
+            <div class="co">SHARE Africa</div>
+            <div class="who">Brenda R., Director</div>
+            <div class="meta">New York, U.S.A. · Partner since 2023</div>
+          </div>
+          <div class="client">
+            <span class="badge">Featured Client</span>
+            <p class="quote">“More than a decade of partnership with this team. We have trusted Sprint19 long after version one. We regularly do team visits to the Philippines. They have become a family.”</p>
+            <div class="co">SMS360 — Safety Management Systems</div>
+            <div class="who">Chris D., CEO</div>
+            <div class="meta">Connecticut, U.S.A. · Partner since 2014</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership" style="background: var(--surface);">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="overline">Leadership</p>
+          <h2>The people behind Sprint19</h2>
+        </div>
+        <div class="leaders">
+          <div class="leader">
+            <div class="top">
+              <img src="assets/jed.jpg" alt="Jed Seculles" />
+              <div><h3>Jed Seculles</h3><div class="role">CEO &amp; Co-Founder</div></div>
+            </div>
+            <p>Jed leads Sprint19’s growth and engineering direction, pairing hands-on depth in Ruby on Rails and cloud architecture with a Lean Six Sigma background.</p>
+            <a href="https://www.linkedin.com/in/jedford-seculles/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+          </div>
+          <div class="leader">
+            <div class="top">
+              <img src="assets/karl.jpg" alt="Karl Custodio" />
+              <div><h3>Karl Custodio</h3><div class="role">COO &amp; Co-Founder</div></div>
+            </div>
+            <p>Karl runs delivery and operations, keeping engagements moving and clients informed from kickoff to launch with a software development and project management background.</p>
+            <a href="https://www.linkedin.com/in/kplcustodio/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div>
+          <div class="lock">
+            <img src="assets/logo-lockup-white.png" alt="Sprint19" />
+            <div class="tag">Make it work.<br />Make it better.</div>
+          </div>
+          <p style="font-size:14px; color: rgba(255,255,255,.5); max-width: 38ch;">Your software and automation partner. We learn how your business runs, then build what fits. Partners on 4 continents since 2009.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="row"><a href="tel:+18886148819">+1 888-614-8819</a></div>
+          <div class="row"><a href="tel:+63232242036">+63 2-3224-2036</a></div>
+          <div class="row"><a href="mailto:hello@sprint19.com">hello@sprint19.com</a></div>
+          <div class="row">BGC, Taguig City, Philippines</div>
+          <div class="socials">
+            <a href="https://www.facebook.com/meetsprint19" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.75h-2.7V9.48c0-.8.22-1.34 1.37-1.34H16.3V5.68c-.26-.03-1.16-.11-2.2-.11-2.18 0-3.67 1.33-3.67 3.77v2.16H8.13V14h2.3v7h3.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/meetsprint19" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/sprint19" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.65h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21h-4z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="row"><a href="https://sprint19.com" target="_blank" rel="noopener">sprint19.com</a></div>
+          <div class="row">Software &amp; Automation Partner</div>
+          <div class="row">Building lovable products since 2009</div>
+        </div>
+      </div>
+      <div class="legal">© 2026 Sprint19. All rights reserved. · Make it work. Make it better.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
