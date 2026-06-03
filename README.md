@@ -5,10 +5,18 @@ website revamp is in progress. No build step, no dependencies.
 
 ```
 company-profile/
-├── index.html        # the whole page (inline CSS)
-├── assets/           # logos, headshots, OG image
+├── index.html        # the whole page (inline CSS + JSON-LD)
+├── assets/           # logos, headshots, OG image, favicon
+├── robots.txt        # allows all, points to sitemap
+├── sitemap.xml
+├── CNAME             # profile.sprint19.com (GitHub Pages custom domain)
 └── README.md
 ```
+
+## SEO
+Self-contained on-page SEO: canonical + Open Graph + Twitter Card, JSON-LD
+structured data (Organization, WebSite, FAQPage), an FAQ section, `robots.txt`,
+and `sitemap.xml`. Update the absolute URLs if the final domain changes.
 
 ## Deploy to GitHub Pages
 

@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sprint19 — Software & Automation Partner | Company Profile</title>
   <meta name="description" content="Sprint19 is your software and automation partner. We learn how your business runs, then build what fits: web and mobile apps, custom software, and Odoo automation. 15+ years, partners on 4 continents." />
+  <meta name="keywords" content="software and automation partner, Odoo implementation, business process automation, MLP development, web app development, mobile app development, custom software development, staff augmentation, Philippines software company" />
+  <meta name="author" content="Sprint19" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#4CA38C" />
   <link rel="canonical" href="https://profile.sprint19.com/" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
 
@@ -15,6 +19,9 @@
   <meta property="og:description" content="We learn how your business runs, then build what fits. 15+ years, partners on 4 continents." />
   <meta property="og:image" content="https://profile.sprint19.com/assets/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sprint19 — Software & Automation Partner" />
+  <meta name="twitter:description" content="We learn how your business runs, then build what fits. 15+ years, partners on 4 continents." />
+  <meta name="twitter:image" content="https://profile.sprint19.com/assets/og.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -132,7 +139,74 @@
     footer .socials a { width: 36px; height: 36px; border-radius: 9px; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); }
     footer .socials a:hover { color: #fff; background: rgba(255,255,255,.16); }
     footer .legal { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 22px; font-size: 13px; color: rgba(255,255,255,.5); }
+
+    /* FAQ */
+    .faq-list { max-width: 780px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; background: #fff; }
+    .faq-item summary { cursor: pointer; padding: 18px 20px; font-weight: 700; color: var(--heading); font-size: 15px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: var(--teal); font-weight: 700; font-size: 20px; line-height: 1; }
+    .faq-item[open] summary::after { content: '\2013'; }
+    .faq-item .ans { padding: 0 20px 18px; font-size: 14px; color: var(--body); }
+
+    /* CTA band */
+    .cta-band { background: var(--teal); text-align: center; }
+    .cta-band h2 { color: #fff; font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 800; margin-bottom: 12px; }
+    .cta-band p { color: rgba(255,255,255,.92); margin-bottom: 24px; max-width: 52ch; margin-left: auto; margin-right: auto; }
+    .cta-band .btn-white { background: #fff; color: var(--teal-dark); }
+    .cta-band .btn-white:hover { background: var(--teal-pale); }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://profile.sprint19.com/#org",
+        "name": "Sprint19",
+        "legalName": "Sprint19 Labs, Inc.",
+        "url": "https://sprint19.com",
+        "logo": "https://profile.sprint19.com/assets/favicon.png",
+        "description": "Software and automation partner. We learn how your business runs, then build what fits: web and mobile apps, custom software, and Odoo automation.",
+        "foundingDate": "2008",
+        "email": "hello@sprint19.com",
+        "telephone": "+63-947-274-7484",
+        "areaServed": "Worldwide",
+        "sameAs": [
+          "https://www.facebook.com/meetsprint19",
+          "https://www.instagram.com/meetsprint19",
+          "https://www.linkedin.com/company/sprint19"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "One Global Place, Bonifacio Global City",
+          "addressLocality": "Taguig City",
+          "addressRegion": "Metro Manila",
+          "addressCountry": "PH"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://profile.sprint19.com/#website",
+        "url": "https://profile.sprint19.com/",
+        "name": "Sprint19",
+        "publisher": { "@id": "https://profile.sprint19.com/#org" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What does Sprint19 do?", "acceptedAnswer": { "@type": "Answer", "text": "Sprint19 is a software and automation partner. We learn how your business runs, then build what fits: web and mobile apps, custom software, and Odoo automation. We have shipped products for founders and operators on four continents since 2008." } },
+          { "@type": "Question", "name": "How quickly can you build my product?", "acceptedAnswer": { "@type": "Answer", "text": "Most Minimum Lovable Products launch in 10 to 12 weeks. We start with a short discovery, design and prototype for your approval, then build in weekly sprints with a demo every Friday." } },
+          { "@type": "Question", "name": "Do you only work with startups?", "acceptedAnswer": { "@type": "Answer", "text": "No. We work with both startups and established SMEs. Sometimes the right answer is a custom app, sometimes Odoo, sometimes both, and sometimes a process change with no new software at all." } },
+          { "@type": "Question", "name": "How do you decide between Odoo, a custom app, or both?", "acceptedAnswer": { "@type": "Answer", "text": "We diagnose before we build. We map how your business actually runs, find where time and money leak, and recommend the simplest path that fits your goals and budget." } },
+          { "@type": "Question", "name": "Where are you based and who do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "Our home base is Bonifacio Global City in Manila, and we partner with clients across the US, Australia, Europe, and Southeast Asia. Our longest partnership has run for more than a decade." } },
+          { "@type": "Question", "name": "How do we get started?", "acceptedAnswer": { "@type": "Answer", "text": "Book a free strategy call. We will review your goals, surface the highest-impact opportunities, and give you honest next steps. No pitch, no pressure." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -274,6 +348,33 @@
             <a href="https://www.linkedin.com/in/kplcustodio/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="overline">FAQ</p>
+          <h2>Questions, answered</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>What does Sprint19 do?</summary><div class="ans">Sprint19 is a software and automation partner. We learn how your business runs, then build what fits — web and mobile apps, custom software, and Odoo automation. We have shipped products for founders and operators on four continents since 2008.</div></details>
+          <details class="faq-item"><summary>How quickly can you build my product?</summary><div class="ans">Most Minimum Lovable Products launch in 10 to 12 weeks. We start with a short discovery, design and prototype for your approval, then build in weekly sprints with a demo every Friday.</div></details>
+          <details class="faq-item"><summary>Do you only work with startups?</summary><div class="ans">No. We work with both startups and established SMEs. Sometimes the right answer is a custom app, sometimes Odoo, sometimes both, and sometimes a process change with no new software at all.</div></details>
+          <details class="faq-item"><summary>How do you decide between Odoo, a custom app, or both?</summary><div class="ans">We diagnose before we build. We map how your business actually runs, find where time and money leak, and recommend the simplest path that fits your goals and budget.</div></details>
+          <details class="faq-item"><summary>Where are you based and who do you work with?</summary><div class="ans">Our home base is Bonifacio Global City in Manila, and we partner with clients across the US, Australia, Europe, and Southeast Asia. Our longest partnership has run for more than a decade.</div></details>
+          <details class="faq-item"><summary>How do we get started?</summary><div class="ans">Book a free strategy call. We will review your goals, surface the highest-impact opportunities, and give you honest next steps. No pitch, no pressure.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Ready to make it work, and make it better?</h2>
+        <p>Book a free strategy call. We will surface the highest-impact opportunities for your business and give you honest next steps.</p>
+        <a class="btn btn-white" href="https://sp19.co/philsme-followup">Book Your Strategy Call</a>
       </div>
     </section>
 
