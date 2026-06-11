@@ -1,0 +1,45 @@
+# Sprint19 — Company Profile
+
+> Sprint19 is a software and automation partner. We learn how a business actually runs, then build only what fits: web and mobile apps, custom software, and Odoo automation. Founded in 2008, headquartered in Bonifacio Global City (BGC), Taguig City, Philippines, serving founders and operators on four continents (United States, Australia, Europe, Southeast Asia). Most Minimum Lovable Products ship in 10–12 weeks, and the average client partnership exceeds 11 years.
+
+## This page
+
+- [Sprint19 Company Profile](https://profile.sprint19.com/): One-page overview of services, process, clients, leadership, and compliance.
+- [Full website](https://sprint19.com): Complete services, case studies, blog, and locations.
+
+## What we do
+
+- MLP Development: production-ready Minimum Lovable Products shipped in 10–12 weeks.
+- Web & Mobile Apps: responsive web and native iOS/Android, built for conversion and scale.
+- AI-Assisted Builds: AI features integrated strategically, not speculatively.
+- Process Optimization (Odoo): ERP, CRM, invoicing, inventory, and HR.
+- Staff Augmentation: senior engineers and product managers embedded within two weeks.
+- Product Strategy: turn an idea into a costed, prioritized roadmap in 1–2 weeks.
+- Marketing Automation: high-converting funnels and automated sales pipelines.
+- Ongoing Support: retainers for fixes, security, monitoring, and new features.
+
+## How we work
+
+Understand first, build after. We diagnose before we build: sometimes the answer is a custom app, sometimes Odoo, sometimes both, and sometimes a process change with no new software at all.
+
+## Leadership
+
+- Jed Seculles, CEO & Co-Founder: engineering and growth direction; Ruby on Rails, cloud architecture, Lean Six Sigma.
+- Karl Custodio, COO & Co-Founder: delivery and operations; software development and project management.
+
+## Featured clients
+
+- Golf Crow / FabForeDev, New York, USA (partner since 2015).
+- SHARE Africa, New York, USA (partner since 2023).
+- SMS360 Safety Management Systems, Connecticut, USA (partner since 2014).
+
+## Compliance
+
+- Sprint19 Labs, Inc. is registered with the Philippine National Privacy Commission (NPC Registration No. PIC-005-913-2026), valid until 11 May 2027, under the Data Privacy Act of 2012 (RA 10173).
+
+## Contact
+
+- Email: hello@sprint19.com
+- Philippines: +63 947-274-7484 and +63 2-3224-2036
+- Office: One Global Place, BGC, Taguig City, Philippines
+- Book a strategy call: https://sp19.co/philsme-followup
