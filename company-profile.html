@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Sprint19 — Company Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#4CA38C; --teal-dark:#2E7A69; --teal-light:#6BBFA7; --teal-pale:#EAF5F1; --teal-bg:#F2FAF7;
+    --surface:#F7FAFA; --border:#DDE9E6; --heading:#0D2420; --body:#3D5A57; --muted:#5A7C76; --dark:#0D2420;
+  }
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--body); line-height:1.5; }
+  h1,h2,h3,h4{ color:var(--heading); letter-spacing:-0.02em; line-height:1.12; }
+
+  .page{ position:relative; width:210mm; min-height:297mm; padding:17mm 16mm 15mm; background:#fff; overflow:hidden; page-break-after:always; }
+  .page:last-child{ page-break-after:auto; }
+
+  .eyebrow{ font-size:8.5pt; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--teal-dark); }
+  .eyebrow.light{ color:var(--teal-light); }
+  h2.sec{ font-size:23pt; font-weight:800; margin:6px 0 4px; }
+  .lead{ font-size:11pt; color:var(--body); max-width:62ch; }
+
+  /* footer band */
+  .foot{ position:absolute; left:16mm; right:16mm; bottom:10mm; display:flex; justify-content:space-between; align-items:center;
+         font-size:8pt; color:var(--muted); border-top:1px solid var(--border); padding-top:7px; letter-spacing:.01em; }
+  .foot b{ color:var(--teal-dark); font-weight:700; }
+
+  /* ---------- COVER ---------- */
+  .cover{ background:linear-gradient(150deg,#0B201C 0%, #123a31 55%, #1f5e50 100%); color:#fff; display:flex; flex-direction:column; }
+  .cover .topbar{ display:flex; justify-content:space-between; align-items:center; }
+  .cover .topbar img{ height:30px; }
+  .cover .tag{ font-size:8.5pt; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.7); }
+  .cover .mid{ margin-top:auto; }
+  .cover h1{ color:#fff; font-size:46pt; font-weight:800; letter-spacing:-0.035em; line-height:1.02; }
+  .cover h1 span{ color:var(--teal-light); }
+  .cover .sub{ font-size:13pt; color:rgba(255,255,255,.9); margin-top:14px; font-weight:600; }
+  .cover .intro{ font-size:10.5pt; color:rgba(255,255,255,.82); max-width:54ch; margin-top:14px; line-height:1.6; }
+  .cover .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:30px; }
+  .cover .stat{ border:1px solid rgba(255,255,255,.18); border-radius:12px; padding:14px 12px; background:rgba(255,255,255,.04); }
+  .cover .stat .n{ font-size:22pt; font-weight:800; letter-spacing:-0.04em; color:#fff; line-height:1; }
+  .cover .stat .l{ font-size:8pt; color:rgba(255,255,255,.7); margin-top:5px; }
+  .cover .cfoot{ display:flex; justify-content:space-between; align-items:center; margin-top:30px; padding-top:14px;
+                 border-top:1px solid rgba(255,255,255,.15); font-size:8.5pt; color:rgba(255,255,255,.72); }
+  .cover .cfoot b{ color:#fff; }
+
+  /* ---------- SHARED BLOCKS ---------- */
+  .ico{ color:var(--teal); }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .card{ border:1px solid var(--border); border-radius:12px; padding:15px 16px; background:#fff; }
+  .card.feat{ border-color:var(--teal); background:var(--teal-bg); }
+  .card h3{ font-size:11pt; font-weight:700; margin:9px 0 4px; }
+  .card p{ font-size:9pt; color:var(--body); line-height:1.45; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .chip{ font-size:8pt; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--teal-dark);
+         background:var(--teal-pale); border-radius:100px; padding:4px 10px; }
+  .chip.dim{ color:var(--muted); background:var(--surface); border:1px solid var(--border); }
+
+  .stackrow{ display:flex; gap:14px; margin-bottom:8px; align-items:baseline; }
+  .stackrow .k{ font-size:8pt; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); width:64px; flex-shrink:0; }
+  .stackrow .v{ display:flex; flex-wrap:wrap; gap:6px; }
+
+  ul.checks{ list-style:none; }
+  ul.checks li{ display:flex; gap:9px; align-items:flex-start; font-size:9.5pt; color:var(--heading); margin-bottom:8px; line-height:1.4; }
+  ul.checks li svg{ flex-shrink:0; margin-top:1px; color:var(--teal); }
+
+  /* process flow */
+  .flow{ display:flex; align-items:stretch; gap:0; }
+  .flow .step{ flex:1; text-align:center; }
+  .flow .pill{ border:1px solid var(--border); border-radius:10px; padding:11px 6px; font-size:8.5pt; font-weight:700; color:var(--heading); background:#fff; }
+  .flow .step.last .pill{ border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-pale); }
+  .flow .arr{ display:flex; align-items:center; color:var(--teal); font-weight:700; padding:0 5px; }
+
+  /* clients */
+  .client{ border:1px solid var(--border); border-radius:12px; padding:16px 17px; margin-bottom:11px; background:#fff; }
+  .client .q{ font-size:10pt; color:var(--heading); font-style:italic; line-height:1.5; }
+  .client .co{ font-size:8.5pt; font-weight:700; color:var(--teal-dark); margin-top:10px; }
+  .client .who{ font-size:8.5pt; color:var(--muted); }
+
+  .statbanner{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:6px; }
+  .statbanner .b{ text-align:center; border:1px solid var(--border); border-radius:12px; padding:14px 8px; background:var(--surface); }
+  .statbanner .b .n{ font-size:20pt; font-weight:800; color:var(--teal); letter-spacing:-0.04em; line-height:1; }
+  .statbanner .b .l{ font-size:7.5pt; color:var(--muted); margin-top:5px; }
+
+  /* leaders */
+  .leader{ display:flex; gap:14px; border:1px solid var(--border); border-radius:12px; padding:15px; background:#fff; align-items:flex-start; }
+  .leader img{ width:58px; height:58px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+  .leader h3{ font-size:11pt; font-weight:700; }
+  .leader .role{ font-size:8.5pt; font-weight:700; color:var(--teal-dark); margin-bottom:5px; }
+  .leader p{ font-size:8.5pt; color:var(--body); line-height:1.45; }
+
+  /* compliance + contact */
+  .compliance{ display:flex; gap:16px; align-items:center; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--teal-bg); }
+  .compliance img{ width:64px; height:auto; flex-shrink:0; }
+  .compliance .t{ font-size:8pt; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-dark); }
+  .compliance h3{ font-size:11pt; font-weight:800; margin:4px 0; }
+  .compliance p{ font-size:8.5pt; color:var(--body); line-height:1.45; }
+
+  .ctaband{ background:var(--teal); border-radius:14px; padding:22px 24px; color:#fff; text-align:center; margin-top:14px; }
+  .ctaband h3{ color:#fff; font-size:16pt; font-weight:800; }
+  .ctaband p{ color:rgba(255,255,255,.92); font-size:9.5pt; margin:7px auto 0; max-width:54ch; }
+  .ctaband .btn{ display:inline-block; margin-top:14px; background:#fff; color:var(--teal-dark); font-weight:700; font-size:9.5pt; padding:9px 20px; border-radius:9px; }
+
+  .contactgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px; }
+  .contactgrid .c{ font-size:8.5pt; color:var(--body); }
+  .contactgrid .c .k{ font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:4px; }
+  .contactgrid .c b{ color:var(--heading); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<section class="page cover">
+  <div class="topbar">
+    <img src="assets/logo-lockup-white.png" alt="Sprint19" />
+    <span class="tag">Company Profile · 2026</span>
+  </div>
+
+  <div class="mid">
+    <h1>Make it work.<br /><span>Make it better.</span></h1>
+    <p class="sub">Your software and automation partner.</p>
+    <p class="intro">We learn how your business actually runs, then build only what fits: web and mobile apps, custom software, and Odoo automation. Shipping products founders and operators rely on since 2008, with partners on four continents.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="n">15+</div><div class="l">Years building products</div></div>
+      <div class="stat"><div class="n">11+</div><div class="l">Year avg. partnership</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Continents served</div></div>
+      <div class="stat"><div class="n">10–12</div><div class="l">Weeks to launch</div></div>
+    </div>
+
+    <div class="cfoot">
+      <span><b>sprint19.com</b> · profile.sprint19.com</span>
+      <span>hello@sprint19.com · One Global Place, BGC, Manila</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 — WHO WE ARE ============ -->
+<section class="page">
+  <p class="eyebrow">Who we are</p>
+  <h2 class="sec">Understand first, build after</h2>
+  <p class="lead" style="margin-top:8px;">
+    Sprint19 is a software and automation partner for founders and operators. We diagnose before we build: we map how a business actually runs, find where time and money leak, and recommend the simplest path that fits. Sometimes that is a custom app, sometimes Odoo, sometimes both, and sometimes a process change with no new software at all.
+  </p>
+
+  <div class="grid2" style="margin-top:18px;">
+    <div class="card feat">
+      <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 0-2.5-2.5H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 1 2.5-2.5H20a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/></svg></div>
+      <h3>Our mission</h3>
+      <p>Help businesses run better. We learn how the work really happens before we build anything, then build only what fits.</p>
+    </div>
+    <div class="card">
+      <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Our vision</h3>
+      <p>Software that fits the business. No company should bend itself to fit its tools; we build technology around how the business already works.</p>
+    </div>
+  </div>
+
+  <p class="eyebrow" style="margin-top:24px;">What drives us</p>
+  <div class="grid2" style="margin-top:10px;">
+    <ul class="checks">
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Be professional. Say what needs saying, with respect and zero ego.</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Own it, solve it, ship it. Face challenges head-on.</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Create value through outcomes that matter.</li>
+    </ul>
+    <ul class="checks">
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>People over process. Trust and connection come first.</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Get better every day. Continuous improvement is the rhythm.</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Have fun. We make space to enjoy the work and the people.</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span><b>Sprint19</b> — Company Profile</span><span>sprint19.com</span><span>2</span></div>
+</section>
+
+<!-- ============ PAGE 3 — WHAT WE BUILD ============ -->
+<section class="page">
+  <p class="eyebrow">What we build</p>
+  <h2 class="sec">One partner, from idea to ongoing support</h2>
+  <p class="lead" style="margin-top:8px;">Eight specialist services. We recommend the right one for your product and audience, not our preferences.</p>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div><h3>MLP Development</h3><p>Production-ready Minimum Lovable Products, shipped in 10 to 12 weeks.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></div><h3>Web &amp; Mobile Apps</h3><p>Responsive web apps and native mobile, built for conversion and scale.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3>AI-Assisted Builds</h3><p>AI features integrated strategically, not speculatively.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Process Optimization</h3><p>Streamline operations with Odoo ERP, CRM, invoicing, inventory, and HR.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Staff Augmentation</h3><p>Senior engineers and PMs embedded in your team within two weeks.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h3>Product Strategy</h3><p>Turn an idea into a costed, prioritized roadmap in one to two weeks.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Marketing Automation</h3><p>High-converting funnels and automated sales pipelines.</p></div>
+    <div class="card"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Ongoing Support</h3><p>Retainers for fixes, security, monitoring, and new features.</p></div>
+  </div>
+
+  <p class="eyebrow" style="margin-top:22px;">Technology</p>
+  <div style="margin-top:10px;">
+    <div class="stackrow"><span class="k">Core</span><span class="v"><span class="chip">Ruby on Rails</span><span class="chip">Ruby</span><span class="chip">Flutter</span></span></div>
+    <div class="stackrow"><span class="k">Also</span><span class="v"><span class="chip">Python</span><span class="chip">WordPress</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span></span></div>
+    <div class="stackrow"><span class="k">Platform</span><span class="v"><span class="chip">PostgreSQL</span><span class="chip">AWS</span><span class="chip">Google Cloud</span><span class="chip">native iOS &amp; Android</span></span></div>
+    <div class="stackrow"><span class="k">Where it fits</span><span class="v"><span class="chip dim">Node.js</span><span class="chip dim">React Native</span><span class="chip dim">Expo</span></span></div>
+  </div>
+
+  <div class="foot"><span><b>Sprint19</b> — Company Profile</span><span>sprint19.com</span><span>3</span></div>
+</section>
+
+<!-- ============ PAGE 4 — HOW WE WORK ============ -->
+<section class="page">
+  <p class="eyebrow">How we work</p>
+  <h2 class="sec">A partnership, not a one-off project</h2>
+  <p class="lead" style="margin-top:8px;">Structured sprints, weekly visibility, and a relationship most of our clients keep for years.</p>
+
+  <div class="flow" style="margin-top:18px;">
+    <div class="step"><div class="pill">Idea</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="pill">App Development</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="pill">Web Platform</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="pill">Growth Content</div></div>
+    <div class="arr">→</div>
+    <div class="step last"><div class="pill">Support</div></div>
+  </div>
+
+  <div class="card feat" style="margin-top:22px;">
+    <p class="eyebrow">Senior engineers, AI on every keyboard</p>
+    <p style="font-size:9.5pt; color:var(--body); line-height:1.5; margin-top:8px;">
+      Every engineer here builds alongside Claude and Cursor daily, using them to weigh approaches, stand up the routine scaffolding, build out test suites, and give their own pull requests a first review pass before a teammate ever opens them. The repetitive work shifts to the machine; the judgment stays human: the architecture, the trade-offs, and the call on what good actually looks like. That is how we move faster without trading away quality.
+    </p>
+  </div>
+
+  <p class="eyebrow" style="margin-top:22px;">Backed by a delivery guarantee</p>
+  <div class="grid2" style="margin-top:10px;">
+    <ul class="checks">
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>30-day deliverable warranty on every build</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Defined SLAs with 2 to 8 hour critical response</li>
+    </ul>
+    <ul class="checks">
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Code quality, security, and integration coverage</li>
+      <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>You own all the code, from day one</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span><b>Sprint19</b> — Company Profile</span><span>sprint19.com</span><span>4</span></div>
+</section>
+
+<!-- ============ PAGE 5 — PROOF / CLIENTS ============ -->
+<section class="page">
+  <p class="eyebrow">Proof</p>
+  <h2 class="sec">Trusted across industries and continents</h2>
+  <p class="lead" style="margin-top:8px;">Long partnerships are our best reference. Many clients have stayed with us for the better part of a decade.</p>
+
+  <div style="margin-top:16px;">
+    <div class="client">
+      <p class="q">“Sprint19 works effectively in understanding needs and implementing optimized technical solutions. They are excellent communicators and highly trustworthy.”</p>
+      <div class="co">Golf Crow · FabForeDev</div>
+      <div class="who">Marty R., Founder · New York, U.S.A. · Partner since 2015</div>
+    </div>
+    <div class="client">
+      <p class="q">“Sprint19 is quick, responsive and trustworthy. We are no longer concerned with software support going out of date, and we have added many efficiency improvements and new features without adding to monthly maintenance costs.”</p>
+      <div class="co">SHARE Africa</div>
+      <div class="who">Brenda R., Director · New York, U.S.A. · Partner since 2023</div>
+    </div>
+    <div class="client">
+      <p class="q">“More than a decade of partnership with this team. We have trusted Sprint19 long after version one, and we regularly visit the team in the Philippines. They have become a family.”</p>
+      <div class="co">SMS360 · Safety Management Systems</div>
+      <div class="who">Chris D., CEO · Connecticut, U.S.A. · Partner since 2014</div>
+    </div>
+  </div>
+
+  <div class="statbanner">
+    <div class="b"><div class="n">15+</div><div class="l">Years building products</div></div>
+    <div class="b"><div class="n">11+</div><div class="l">Year avg. partnership</div></div>
+    <div class="b"><div class="n">4</div><div class="l">Continents served</div></div>
+    <div class="b"><div class="n">2008</div><div class="l">Building since</div></div>
+  </div>
+
+  <div class="foot"><span><b>Sprint19</b> — Company Profile</span><span>sprint19.com</span><span>5</span></div>
+</section>
+
+<!-- ============ PAGE 6 — LEADERSHIP / COMPLIANCE / CONTACT ============ -->
+<section class="page">
+  <p class="eyebrow">Leadership</p>
+  <h2 class="sec">The people behind Sprint19</h2>
+
+  <div class="grid2" style="margin-top:14px;">
+    <div class="leader">
+      <img src="assets/jed.jpg" alt="Jed Seculles" />
+      <div>
+        <h3>Jed Seculles</h3>
+        <div class="role">CEO &amp; Co-Founder</div>
+        <p>Leads growth and engineering direction, pairing hands-on depth in Ruby on Rails and cloud architecture with a Lean Six Sigma background.</p>
+      </div>
+    </div>
+    <div class="leader">
+      <img src="assets/karl.jpg" alt="Karl Custodio" />
+      <div>
+        <h3>Karl Custodio</h3>
+        <div class="role">COO &amp; Co-Founder</div>
+        <p>Runs delivery and operations, keeping engagements moving and clients informed from kickoff to launch.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="eyebrow" style="margin-top:24px;">Compliance</p>
+  <div class="compliance" style="margin-top:10px;">
+    <img src="assets/dpc-seal.png" alt="National Privacy Commission registered seal" />
+    <div>
+      <div class="t">Data Privacy Compliance</div>
+      <h3>Registered with the National Privacy Commission</h3>
+      <p>Sprint19 Labs, Inc. is a registered Data Protection Officer / Data Processing System under the Philippine Data Privacy Act of 2012 (RA 10173). NPC Registration No. PIC-005-913-2026, valid until 11 May 2027.</p>
+    </div>
+  </div>
+
+  <div class="ctaband">
+    <h3>Ready to make it work, and make it better?</h3>
+    <p>Book a free strategy call. We will surface the highest-impact opportunities for your business and give you honest next steps.</p>
+    <span class="btn">sprint19.com/contact</span>
+  </div>
+
+  <div class="contactgrid">
+    <div class="c"><div class="k">Talk to us</div><b>hello@sprint19.com</b><br />+63 947-274-7484<br />+63 2-3224-2036</div>
+    <div class="c"><div class="k">Visit</div><b>One Global Place</b><br />Bonifacio Global City<br />Taguig City, Philippines</div>
+    <div class="c"><div class="k">Online</div><b>sprint19.com</b><br />profile.sprint19.com<br />linkedin.com/company/sprint19</div>
+  </div>
+
+  <div class="foot"><span><b>Sprint19</b> — Software &amp; Automation Partner</span><span>© 2026 Sprint19 Labs, Inc.</span><span>6</span></div>
+</section>
+
+</body>
+</html>
